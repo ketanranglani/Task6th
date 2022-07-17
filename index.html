@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video-js</title>
+    <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
+</head>
+<body>
+    
+    
+    <video src="http://www.w3schools.com/html/mov_bbb.mp4" id="myvideo" width="320" height="240" controls style="background:black">
+
+    </video>
+     
+    <script>
+        var myvid = document.getElementById('myvideo');
+        var myvids = [
+          "http://www.w3schools.com/html/mov_bbb.mp4", 
+          "http://www.w3schools.com/html/movie.mp4"
+          ];
+        var activeVideo = 0;
+        
+        myvid.addEventListener('ended', function(e) {
+          // update the new active video index
+          activeVideo = (++activeVideo) % myvids.length;
+        
+          // update the video source and play
+          myvid.src = myvids[activeVideo];
+          myvid.play();
+        });
+        </script>
+
+    <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+</body>
+</html>
